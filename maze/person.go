@@ -6,6 +6,7 @@ import (
 
 type direction int
 
+// Four directions
 const (
 	RIGHT direction = 1 + iota
 	LEFT
@@ -17,9 +18,9 @@ type person struct {
 	position coordinates
 }
 
-func newPerson(pos []coordinates) *person {
-	return &person {
-		position: pos
+func newPerson(pos coordinates) *person {
+	return &person{
+		position: pos,
 	}
 }
 
@@ -28,14 +29,17 @@ func (p *person) die() error {
 }
 
 func (p *person) move(d direction) error {
+
+	
 	switch d {
 	case RIGHT:
-		p.pos.x++
+		p.position.x++
 	case LEFT:
-		p.pos.x--
+		p.position.x--
 	case UP:
-		p.pos.y++
+		p.position.y++
 	case DOWN:
-		p.pos.y--
+		p.position.y--
 	}
+	return nil
 }
