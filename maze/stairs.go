@@ -4,8 +4,8 @@ type stairs struct {
 	position coordinates
 }
 
-func newStairs(pos[] coordinates) *stairs {
+func newStairs(pos coordinates) *stairs {
 	return &stairs{
-		position: pos
+		position: pos,
 	}
 }
