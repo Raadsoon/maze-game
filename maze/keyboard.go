@@ -4,6 +4,7 @@ import "github.com/nsf/termbox-go"
 
 type keyboardEventType int
 
+// Keyboard events - move, restart and quit
 const (
 	MOVE keyboardEventType = 1 + iota
 	RESTART
@@ -31,7 +32,7 @@ func keyToDirection(k termbox.Key) direction {
 }
 
 func listenToKeyboard(evChan chan keyboardEvent) {
-	termbox.SetΙnputMode(termbox.InputEsc)
+	termbox.SetInputMode(termbox.InputEsc)
 	for {
 		switch ev := termbox.PollEvent(); ev.Type {
 		case termbox.EventKey:
