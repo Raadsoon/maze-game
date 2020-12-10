@@ -1,11 +1,11 @@
 package maze
 
 type spikes struct {
-	spikes []coordinates
+	position []coordinates
 }
 
 func newSpikes(s []coordinates) *spikes {
 	return &spikes{
-		spikes:	s
+		position:	s,
 	}
 }
