@@ -8,7 +8,8 @@ var (
 	keyboardEventsChan = make(chan keyboardEvent)
 )
 
-type game struct {
+// Game type
+type Game struct {
 	arena     *arena
 	isVisible bool
 	isOver    bool
@@ -45,24 +46,26 @@ func initialArena() *arena {
 	)
 }
 
-func (g *game) quit() {
+func (g *Game) quit() {
 	g.isOver = true
 }
 
-func (g *game) restart() {
+func (g *Game) restart() {
 	g.arena = initialArena()
 	g.isOver = false
 }
 
-func newGame() *game {
-	return &game{
+// NewGame creates a new game
+func NewGame() *Game {
+	return &Game{
 		initialArena(),
 		true,
 		false,
 	}
 }
 
-func (g *game) start() {
+// Start begins the game
+func (g *Game) Start() {
 	if err := termbox.Init(); err != nil {
 		panic(err)
 	}
