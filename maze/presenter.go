@@ -12,7 +12,7 @@ const (
 	stairsColor  = termbox.ColorWhite
 )
 
-func (g *game) render() error {
+func (g *Game) render() error {
 	termbox.Clear(defaultColor, defaultColor)
 
 	var (
@@ -47,7 +47,7 @@ func renderArena(a *arena, top, bottom, left, right int) {
 }
 
 func renderPerson(p *person, top, left int) {
-	termbox.SetCell(left + p.position.x, top + p.position.y, 'P', personColor, personColor)
+	termbox.SetCell(left+p.position.x, top+p.position.y, 'P', personColor, personColor)
 }
 
 func renderSpikes(s *spikes, top, left int) {
@@ -57,5 +57,5 @@ func renderSpikes(s *spikes, top, left int) {
 }
 
 func renderStairs(s *stairs, top, left int) {
-	termbox.SetCell(left + s.position.x, top + s.position.y, 'O', stairsColor, stairsColor)
+	termbox.SetCell(left+s.position.x, top+s.position.y, 'O', stairsColor, stairsColor)
 }
